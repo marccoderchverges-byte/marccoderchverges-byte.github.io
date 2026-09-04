@@ -18,6 +18,7 @@
   body{
     min-height: 100vh;
     font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: 400;
     color: #1a1a1a;
     display: flex;
     flex-direction: column;
@@ -57,21 +58,27 @@
     color: #444444;
   }
 
+  .about-photo-wrap{
+    margin: 0 auto clamp(32px, 6vh, 56px);
+    text-align: center;
+  }
+
   .about-photo{
     width: 100%;
     aspect-ratio: 4 / 5;
     max-width: 340px;
-    margin: 0 auto clamp(32px, 6vh, 56px);
+    margin: 0 auto;
     background: #f2f2f2;
-    border: 1px solid #e2e2e2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #999999;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
+    object-fit: cover;
+    display: block;
     filter: drop-shadow(0 14px 20px rgba(0,0,0,0.08));
+  }
+
+  .about-caption{
+    margin-top: clamp(10px, 2vh, 16px);
+    font-weight: 400;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
   }
 
   .about-text{
@@ -97,7 +104,10 @@
 
 <main>
   <div class="section-title">About</div>
-  <div class="about-photo">Photo placeholder</div>
+  <div class="about-photo-wrap">
+    <img class="about-photo" src="about-photo.jpg" alt="Marc Coderch">
+    <div class="about-caption">Barcelona, 1994</div>
+  </div>
 
   <div class="about-text">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
