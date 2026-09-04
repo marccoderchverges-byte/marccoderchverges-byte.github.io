@@ -135,19 +135,37 @@
   }
 
   .main-row{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: center;
-    gap: clamp(28px, 6vw, 96px);
-    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+    padding: 0 clamp(20px, 5vw, 72px);
+    margin: 0 auto;
+  }
+
+  .stone-link{
+    justify-self: center;
   }
 
   .side-link{
     font-family: inherit;
+    font-weight: 400;
     font-size: clamp(0.68rem, 1.4vw, 0.82rem);
     color: #444444;
     text-decoration: none;
-    white-space: nowrap;
+    max-width: 12em;
+  }
+
+  .side-link.left{
+    justify-self: start;
+    text-align: left;
+  }
+
+  .side-link.right{
+    justify-self: end;
+    text-align: right;
   }
 
   .side-link:hover{
@@ -159,7 +177,7 @@
 <body>
 
 <div class="main-row">
-  <a href="about.html" class="side-link">About</a>
+  <a href="about.html" class="side-link left">How does it work</a>
 
   <a href="mailto:marc.coderch.verges@gmail.com"
      class="stone-link"
@@ -169,7 +187,7 @@
     <span class="email" id="emailLabel">marc.coderch.verges@gmail.com</span>
   </a>
 
-  <a href="catalogue.html" class="side-link">Catalogue</a>
+  <a href="catalogue.html" class="side-link right">Catalogue</a>
 </div>
 
 <div class="bottom-contact">

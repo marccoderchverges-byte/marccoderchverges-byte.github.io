@@ -51,12 +51,6 @@
     text-align: center;
   }
 
-  #gate p{
-    margin: 0;
-    font-size: clamp(0.85rem, 1.8vw, 1rem);
-    color: #444444;
-  }
-
   #gateForm{
     display: flex;
     gap: 0.6em;
@@ -78,6 +72,7 @@
 
   #gateForm button{
     font-family: inherit;
+    font-weight: 400;
     font-size: 0.95rem;
     padding: 0.5em 1.1em;
     border: 1px solid #1a1a1a;
@@ -106,12 +101,12 @@
 
   .grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(2px, 0.4vw, 6px);
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(20px, 3vw, 44px);
   }
 
   @media (max-width: 720px){
-    .grid{ grid-template-columns: repeat(2, 1fr); }
+    .grid{ grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 5vw, 28px); }
   }
 
   .grid-item{
@@ -128,31 +123,33 @@
     display: block;
   }
 
-  .grid-item .label{
+  .grid-item .coords{
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0.5em 0.7em;
-    font-size: 0.72rem;
-    color: #ffffff;
-    background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0));
+    inset: 0;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 0.75em;
+    font-size: clamp(0.62rem, 1.1vw, 0.74rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.65), 0 0 1px rgba(0,0,0,0.5);
+    pointer-events: none;
   }
 </style>
 </head>
 <body>
 
 <div class="top-nav">
-  <a href="index.html">&larr; Home</a>
+  <a href="index.html">Back</a>
 </div>
 
 <!-- Placeholder client-side gate: not real security (source/images are still
      reachable in devtools). Fine as a soft placeholder wall for now; swap for
      a proper backend/auth before this is a real store. Password: pedra2026 -->
 <div id="gate">
-  <p>This section is password protected.</p>
   <form id="gateForm">
     <input type="password" id="gatePassword" placeholder="Password" autocomplete="off">
     <button type="submit">Enter</button>
@@ -169,30 +166,29 @@
   var SESSION_KEY = "catalogue-unlocked";
 
   var stones = [
-    "fotos/pedra-01.jpg",
-    "fotos/pedra-02.jpg",
-    "fotos/pedra-03.jpg",
-    "fotos/pedra-04.jpg",
-    "fotos/pedra-05.jpg",
-    "fotos/pedra-06.jpg",
-    "fotos/pedra-07.jpg",
-    "fotos/pedra-08.jpg",
-    "fotos/pedra-09.jpg",
-    "fotos/pedra-10.jpg",
-    "fotos/pedra-11.jpg",
-    "fotos/pedra-12.jpg"
+    { src: "fotos/pedra-01.jpg", coords: "41.4036°N 2.1744°E" },
+    { src: "fotos/pedra-02.jpg", coords: "41.3874°N 2.1686°E" },
+    { src: "fotos/pedra-03.jpg", coords: "41.9794°N 2.8214°E" },
+    { src: "fotos/pedra-04.jpg", coords: "42.1408°N 1.8225°E" },
+    { src: "fotos/pedra-05.jpg", coords: "41.6176°N 0.9200°E" },
+    { src: "fotos/pedra-06.jpg", coords: "41.1189°N 1.2445°E" },
+    { src: "fotos/pedra-07.jpg", coords: "42.3372°N 3.1725°E" },
+    { src: "fotos/pedra-08.jpg", coords: "41.5591°N 2.0114°E" },
+    { src: "fotos/pedra-09.jpg", coords: "41.7267°N 2.4963°E" },
+    { src: "fotos/pedra-10.jpg", coords: "41.2179°N 1.4467°E" },
+    { src: "fotos/pedra-11.jpg", coords: "42.0512°N 2.6300°E" },
+    { src: "fotos/pedra-12.jpg", coords: "41.8823°N 1.0932°E" }
   ];
 
   function buildGrid(){
     var grid = document.getElementById("grid");
     grid.innerHTML = "";
-    stones.forEach(function(src, i){
-      var num = String(i + 1).padStart(2, "0");
+    stones.forEach(function(stone, i){
       var item = document.createElement("div");
       item.className = "grid-item";
       item.innerHTML =
-        '<img src="' + src + '" alt="Pedra ' + num + '" loading="lazy">' +
-        '<div class="label"><span>Pedra ' + num + '</span><span>&mdash;</span></div>';
+        '<img src="' + stone.src + '" alt="Stone ' + (i + 1) + '" loading="lazy">' +
+        '<div class="coords">' + stone.coords + '</div>';
       grid.appendChild(item);
     });
   }
