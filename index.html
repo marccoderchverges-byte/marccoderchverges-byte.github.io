@@ -134,19 +134,31 @@
     text-decoration: underline;
   }
 
-  .main-row{
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+  .home-stack{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 1400px;
-    box-sizing: border-box;
-    padding: 0 clamp(20px, 5vw, 72px);
-    margin: 0 auto;
+    gap: clamp(16px, 3vh, 28px);
   }
 
-  .stone-link{
-    justify-self: center;
+  .about-link{
+    font-family: inherit;
+    font-weight: 400;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
+    text-decoration: none;
+  }
+
+  .about-link:hover{
+    text-decoration: underline;
+  }
+
+  .main-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(28px, 6vw, 96px);
+    flex-wrap: wrap;
   }
 
   .side-link{
@@ -155,17 +167,7 @@
     font-size: clamp(0.68rem, 1.4vw, 0.82rem);
     color: #444444;
     text-decoration: none;
-    max-width: 12em;
-  }
-
-  .side-link.left{
-    justify-self: start;
-    text-align: left;
-  }
-
-  .side-link.right{
-    justify-self: end;
-    text-align: right;
+    white-space: nowrap;
   }
 
   .side-link:hover{
@@ -176,18 +178,22 @@
 </head>
 <body>
 
-<div class="main-row">
-  <a href="about.html" class="side-link left">How does it work</a>
+<div class="home-stack">
+  <a href="about.html" class="about-link">About</a>
 
-  <a href="mailto:marc.coderch.verges@gmail.com"
-     class="stone-link"
-     id="stoneLink"
-     aria-label="Envia un correu a marc.coderch.verges@gmail.com">
-    <img class="stone-img" id="stoneImg" src="" alt="" aria-hidden="true">
-    <span class="email" id="emailLabel">marc.coderch.verges@gmail.com</span>
-  </a>
+  <div class="main-row">
+    <a href="about.html" class="side-link">How does it work</a>
 
-  <a href="catalogue.html" class="side-link right">Catalogue</a>
+    <a href="mailto:marc.coderch.verges@gmail.com"
+       class="stone-link"
+       id="stoneLink"
+       aria-label="Envia un correu a marc.coderch.verges@gmail.com">
+      <img class="stone-img" id="stoneImg" src="" alt="" aria-hidden="true">
+      <span class="email" id="emailLabel">marc.coderch.verges@gmail.com</span>
+    </a>
+
+    <a href="catalogue.html" class="side-link">Catalogue</a>
+  </div>
 </div>
 
 <div class="bottom-contact">
