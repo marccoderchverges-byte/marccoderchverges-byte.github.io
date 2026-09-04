@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalogue — Marc Coderch</title>
+<meta name="robots" content="noindex">
+
+<style>
+  :root{
+    color-scheme: light;
+  }
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  body{
+    min-height: 100vh;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    color: #1a1a1a;
+  }
+
+  .top-nav{
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vh, 40px) 1.5rem 0;
+    text-align: center;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
+  }
+
+  .top-nav a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .top-nav a:hover{
+    text-decoration: underline;
+  }
+
+  /* --- Password gate --- */
+  #gate{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2em;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  #gate p{
+    margin: 0;
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    color: #444444;
+  }
+
+  #gateForm{
+    display: flex;
+    gap: 0.6em;
+  }
+
+  #gatePassword{
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.5em 0.7em;
+    border: 1px solid #cccccc;
+    background: #ffffff;
+    color: #1a1a1a;
+    outline: none;
+  }
+
+  #gatePassword:focus{
+    border-color: #999999;
+  }
+
+  #gateForm button{
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.5em 1.1em;
+    border: 1px solid #1a1a1a;
+    background: #1a1a1a;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  #gateForm button:hover{
+    background: #333333;
+  }
+
+  #gateError{
+    font-size: 0.78rem;
+    color: #a33;
+    min-height: 1.2em;
+  }
+
+  /* --- Gallery --- */
+  #gallery{
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(32px, 6vh, 64px) clamp(20px, 4vw, 48px) clamp(64px, 10vh, 120px);
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2px, 0.4vw, 6px);
+  }
+
+  @media (max-width: 720px){
+    .grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .grid-item{
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #f2f2f2;
+  }
+
+  .grid-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .grid-item .label{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.5em 0.7em;
+    font-size: 0.72rem;
+    color: #ffffff;
+    background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0));
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">&larr; Home</a>
+</div>
+
+<!-- Placeholder client-side gate: not real security (source/images are still
+     reachable in devtools). Fine as a soft placeholder wall for now; swap for
+     a proper backend/auth before this is a real store. Password: pedra2026 -->
+<div id="gate">
+  <p>This section is password protected.</p>
+  <form id="gateForm">
+    <input type="password" id="gatePassword" placeholder="Password" autocomplete="off">
+    <button type="submit">Enter</button>
+  </form>
+  <div id="gateError"></div>
+</div>
+
+<div id="gallery">
+  <div class="grid" id="grid"></div>
+</div>
+
+<script>
+  var CATALOGUE_PASSWORD = "pedra2026";
+  var SESSION_KEY = "catalogue-unlocked";
+
+  var stones = [
+    "fotos/pedra-01.jpg",
+    "fotos/pedra-02.jpg",
+    "fotos/pedra-03.jpg",
+    "fotos/pedra-04.jpg",
+    "fotos/pedra-05.jpg",
+    "fotos/pedra-06.jpg",
+    "fotos/pedra-07.jpg",
+    "fotos/pedra-08.jpg",
+    "fotos/pedra-09.jpg",
+    "fotos/pedra-10.jpg",
+    "fotos/pedra-11.jpg",
+    "fotos/pedra-12.jpg"
+  ];
+
+  function buildGrid(){
+    var grid = document.getElementById("grid");
+    grid.innerHTML = "";
+    stones.forEach(function(src, i){
+      var num = String(i + 1).padStart(2, "0");
+      var item = document.createElement("div");
+      item.className = "grid-item";
+      item.innerHTML =
+        '<img src="' + src + '" alt="Pedra ' + num + '" loading="lazy">' +
+        '<div class="label"><span>Pedra ' + num + '</span><span>&mdash;</span></div>';
+      grid.appendChild(item);
+    });
+  }
+
+  function unlock(){
+    document.getElementById("gate").style.display = "none";
+    document.getElementById("gallery").style.display = "block";
+    buildGrid();
+  }
+
+  try{
+    if(sessionStorage.getItem(SESSION_KEY) === "1"){
+      unlock();
+    }
+  }catch(e){}
+
+  document.getElementById("gateForm").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var val = document.getElementById("gatePassword").value;
+    if(val === CATALOGUE_PASSWORD){
+      try{ sessionStorage.setItem(SESSION_KEY, "1"); }catch(e){}
+      unlock();
+    }else{
+      document.getElementById("gateError").textContent = "Incorrect password.";
+    }
+  });
+</script>
+
+</body>
+</html>

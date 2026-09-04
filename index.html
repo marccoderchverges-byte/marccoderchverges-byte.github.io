@@ -134,17 +134,43 @@
     text-decoration: underline;
   }
 
+  .main-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(28px, 6vw, 96px);
+    flex-wrap: wrap;
+  }
+
+  .side-link{
+    font-family: inherit;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .side-link:hover{
+    text-decoration: underline;
+  }
+
 </style>
 </head>
 <body>
 
-<a href="mailto:marc.coderch.verges@gmail.com"
-   class="stone-link"
-   id="stoneLink"
-   aria-label="Envia un correu a marc.coderch.verges@gmail.com">
-  <img class="stone-img" id="stoneImg" src="" alt="" aria-hidden="true">
-  <span class="email" id="emailLabel">marc.coderch.verges@gmail.com</span>
-</a>
+<div class="main-row">
+  <a href="about.html" class="side-link">About</a>
+
+  <a href="mailto:marc.coderch.verges@gmail.com"
+     class="stone-link"
+     id="stoneLink"
+     aria-label="Envia un correu a marc.coderch.verges@gmail.com">
+    <img class="stone-img" id="stoneImg" src="" alt="" aria-hidden="true">
+    <span class="email" id="emailLabel">marc.coderch.verges@gmail.com</span>
+  </a>
+
+  <a href="catalogue.html" class="side-link">Catalogue</a>
+</div>
 
 <div class="bottom-contact">
   Marc Coderch<br>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Marc Coderch</title>
+<meta name="robots" content="noindex">
+
+<style>
+  :root{
+    color-scheme: light;
+  }
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  body{
+    min-height: 100vh;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-nav{
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vh, 40px) 1.5rem 0;
+    text-align: center;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
+  }
+
+  .top-nav a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .top-nav a:hover{
+    text-decoration: underline;
+  }
+
+  main{
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    padding: clamp(48px, 8vh, 96px) 1.5rem clamp(64px, 10vh, 120px);
+  }
+
+  .about-photo{
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-width: 340px;
+    margin: 0 auto clamp(32px, 6vh, 56px);
+    background: #f2f2f2;
+    border: 1px solid #e2e2e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #999999;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    filter: drop-shadow(0 14px 20px rgba(0,0,0,0.08));
+  }
+
+  .about-text{
+    font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+    line-height: 1.8;
+    color: #1a1a1a;
+  }
+
+  .about-text p{
+    margin: 0 0 1.4em;
+  }
+
+  .about-text p:last-child{
+    margin-bottom: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">&larr; Home</a>
+</div>
+
+<main>
+  <div class="about-photo">Photo placeholder</div>
+
+  <div class="about-text">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+  </div>
+</main>
+
+</body>
+</html>
