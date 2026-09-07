@@ -134,17 +134,38 @@
     text-decoration: underline;
   }
 
+  .home-stack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(20px, 4vh, 36px);
+  }
+
+  .shop-note{
+    max-width: 420px;
+    text-align: center;
+    font-family: inherit;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    line-height: 1.7;
+    color: #444444;
+    padding: 0 1.5rem;
+  }
+
 </style>
 </head>
 <body>
 
-<a href="mailto:marc.coderch.verges@gmail.com"
-   class="stone-link"
-   id="stoneLink"
-   aria-label="Envia un correu a marc.coderch.verges@gmail.com">
-  <img class="stone-img" id="stoneImg" src="" alt="" aria-hidden="true">
-  <span class="email" id="emailLabel">marc.coderch.verges@gmail.com</span>
-</a>
+<div class="home-stack">
+  <div class="shop-note">To shop please reach out through email. We can either work with your stone or I can provide mine. We ship worldwide.</div>
+
+  <a href="mailto:marc.coderch.verges@gmail.com"
+     class="stone-link"
+     id="stoneLink"
+     aria-label="Envia un correu a marc.coderch.verges@gmail.com">
+    <img class="stone-img" id="stoneImg" src="" alt="" aria-hidden="true">
+    <span class="email" id="emailLabel">marc.coderch.verges@gmail.com</span>
+  </a>
+</div>
 
 <div class="bottom-contact">
   Marc Coderch<br>
