@@ -73,19 +73,21 @@
   }
 
   .details{
+    max-height: 82vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: clamp(14px, 2.4vh, 20px);
+    gap: clamp(5px, 1vh, 9px);
     padding-top: clamp(4px, 1vh, 12px);
+    scrollbar-width: thin;
   }
 
   .detail-row{
     display: flex;
     justify-content: space-between;
     gap: 1.5em;
-    padding-bottom: clamp(10px, 2vh, 16px);
-    border-bottom: 1px solid #e6e6e6;
     font-size: clamp(0.74rem, 1.5vw, 0.86rem);
+    font-weight: 400;
   }
 
   .detail-row .label{
@@ -95,6 +97,7 @@
 
   .detail-row .value{
     text-align: right;
+    color: #1a1a1a;
   }
 
   .swatch{
@@ -109,34 +112,78 @@
 
   .pantone-line{
     display: block;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
-  .price-row{
-    border-bottom: none;
-    font-size: clamp(0.86rem, 1.8vw, 1rem);
-    margin-top: 0.2em;
+  .place-order{
+    margin-top: clamp(16px, 2.5vh, 22px);
+    text-align: center;
   }
 
-  .buy-btn{
-    margin-top: clamp(6px, 1.5vh, 14px);
+  .place-order button{
     font-family: inherit;
     font-weight: 400;
-    font-size: clamp(0.78rem, 1.6vw, 0.9rem);
-    padding: 0.85em 1.2em;
-    border: 1px solid #1a1a1a;
-    background: #1a1a1a;
-    color: #ffffff;
-    text-align: center;
-    line-height: 1.5;
+    font-size: clamp(0.74rem, 1.5vw, 0.86rem);
+    background: none;
+    border: none;
+    padding: 0;
+    color: #1a1a1a;
+    text-decoration: underline;
     cursor: default;
   }
 
-  .stripe-note{
-    display: block;
-    font-size: 0.7em;
-    color: #cccccc;
-    margin-top: 0.15em;
+  .stripe-badge{
+    margin-top: 0.5em;
+    text-align: center;
+    font-size: clamp(0.66rem, 1.3vw, 0.76rem);
+    color: #444444;
+  }
+
+  .stripe-badge b{
+    color: #635BFF;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .faq{
+    margin-top: clamp(28px, 4vh, 40px);
+    border-top: 1px solid #e6e6e6;
+    padding-top: clamp(8px, 2vh, 14px);
+  }
+
+  .faq details{
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .faq summary{
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7em 0;
+    font-size: clamp(0.74rem, 1.5vw, 0.86rem);
+  }
+
+  .faq summary::-webkit-details-marker{
+    display: none;
+  }
+
+  .faq summary::after{
+    content: "+";
+    color: #444444;
+    padding-left: 1em;
+  }
+
+  .faq details[open] summary::after{
+    content: "–";
+  }
+
+  .faq p{
+    margin: 0 0 1em;
+    font-size: clamp(0.7rem, 1.4vw, 0.8rem);
+    color: #444444;
+    line-height: 1.6;
   }
 
   @media (max-width: 700px){
@@ -144,6 +191,10 @@
       grid-template-columns: 1fr;
     }
     .gallery{
+      max-height: none;
+      overflow-y: visible;
+    }
+    .details{
       max-height: none;
       overflow-y: visible;
     }
@@ -167,11 +218,32 @@
     <div class="detail-row"><span class="label">Size</span><span class="value" id="pSize"></span></div>
     <div class="detail-row"><span class="label">Hardness</span><span class="value" id="pHardness"></span></div>
     <div class="detail-row"><span class="label">Stone</span><span class="value" id="pType"></span></div>
-    <div class="detail-row price-row"><span class="label">Price</span><span class="value" id="pPrice"></span></div>
-    <button type="button" class="buy-btn" aria-disabled="true">
-      Buy
-      <span class="stripe-note">Powered by Stripe</span>
-    </button>
+    <div class="detail-row"><span class="label">Ships</span><span class="value">Worldwide</span></div>
+    <div class="detail-row"><span class="label">Price</span><span class="value" id="pPrice"></span></div>
+
+    <div class="place-order">
+      <button type="button" aria-disabled="true">Place Order</button>
+      <div class="stripe-badge">Powered by <b>Stripe</b></div>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>Shipping</summary>
+        <p>Placeholder — shipping details coming soon.</p>
+      </details>
+      <details>
+        <summary>Returns</summary>
+        <p>Placeholder — return policy coming soon.</p>
+      </details>
+      <details>
+        <summary>Care</summary>
+        <p>Placeholder — care instructions coming soon.</p>
+      </details>
+      <details>
+        <summary>Authenticity</summary>
+        <p>Placeholder — authenticity details coming soon.</p>
+      </details>
+    </div>
   </div>
 </div>
 
