@@ -120,6 +120,12 @@
     .grid{ grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 5vw, 28px); }
   }
 
+  .grid-item{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
   .grid-item .photo{
     aspect-ratio: 4 / 5;
     overflow: hidden;
@@ -131,6 +137,11 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: opacity 0.2s ease;
+  }
+
+  .grid-item:hover img{
+    opacity: 0.82;
   }
 
   .grid-item .coords{
@@ -165,33 +176,20 @@
   <div class="grid" id="grid"></div>
 </div>
 
+<script src="stones-data.js"></script>
 <script>
   var CATALOGUE_PASSWORD = "pedra2026";
   var SESSION_KEY = "catalogue-unlocked";
 
-  var stones = [
-    { src: "fotos/pedra-01.jpg", coords: "41.4036°N 2.1744°E" },
-    { src: "fotos/pedra-02.jpg", coords: "41.3874°N 2.1686°E" },
-    { src: "fotos/pedra-03.jpg", coords: "41.9794°N 2.8214°E" },
-    { src: "fotos/pedra-04.jpg", coords: "42.1408°N 1.8225°E" },
-    { src: "fotos/pedra-05.jpg", coords: "41.6176°N 0.9200°E" },
-    { src: "fotos/pedra-06.jpg", coords: "41.1189°N 1.2445°E" },
-    { src: "fotos/pedra-07.jpg", coords: "42.3372°N 3.1725°E" },
-    { src: "fotos/pedra-08.jpg", coords: "41.5591°N 2.0114°E" },
-    { src: "fotos/pedra-09.jpg", coords: "41.7267°N 2.4963°E" },
-    { src: "fotos/pedra-10.jpg", coords: "41.2179°N 1.4467°E" },
-    { src: "fotos/pedra-11.jpg", coords: "42.0512°N 2.6300°E" },
-    { src: "fotos/pedra-12.jpg", coords: "41.8823°N 1.0932°E" }
-  ];
-
   function buildGrid(){
     var grid = document.getElementById("grid");
     grid.innerHTML = "";
-    stones.forEach(function(stone, i){
-      var item = document.createElement("div");
+    STONES.forEach(function(stone, i){
+      var item = document.createElement("a");
       item.className = "grid-item";
+      item.href = "product.html?id=" + stone.id;
       item.innerHTML =
-        '<div class="photo"><img src="' + stone.src + '" alt="Stone ' + (i + 1) + '" loading="lazy"></div>' +
+        '<div class="photo"><img src="' + stone.img + '" alt="Stone ' + (i + 1) + '" loading="lazy"></div>' +
         '<div class="coords">' + stone.coords + '</div>';
       grid.appendChild(item);
     });
