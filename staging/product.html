@@ -64,7 +64,8 @@
     scrollbar-width: thin;
   }
 
-  .gallery img{
+  .gallery img,
+  .gallery video{
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
@@ -280,6 +281,17 @@
     img.loading = i === 0 ? "eager" : "lazy";
     galleryEl.appendChild(img);
   });
+
+  if(stone.video){
+    var video = document.createElement("video");
+    video.src = stone.video;
+    video.controls = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    galleryEl.appendChild(video);
+  }
 
   document.getElementById("pSerial").textContent = stone.serial;
   document.getElementById("pCoords").textContent = stone.coords;
