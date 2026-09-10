@@ -14,7 +14,7 @@ var STONES = [
     img: "fotos/01/01.jpg",
     imgs: ["fotos/01/01.jpg", "fotos/01/02.jpg", "fotos/01/03.jpg"],
     video: "fotos/01/video.mp4",
-    coords: "41.3874°N 2.1686°E",
+    coords: "41.5051°N 2.3921°E",
     serial: "APH-01102",
     pantones: [
       { name: "Chamois Leather", code: "16-1235 TPX", hex: "#C9A15D" },
@@ -31,7 +31,7 @@ var STONES = [
     img: "fotos/02/01.jpg",
     imgs: ["fotos/02/01.jpg", "fotos/02/02.jpg", "fotos/02/03.jpg"],
     video: "fotos/02/video.mp4",
-    coords: "41.9794°N 2.8214°E",
+    coords: "63.4188°N 19.0060°W",
     serial: "APH-01118",
     pantones: [
       { name: "Jet Black", code: "19-0303 TPX", hex: "#201F1E" },
@@ -48,7 +48,7 @@ var STONES = [
     img: "fotos/03/01.jpg",
     imgs: ["fotos/03/01.jpg", "fotos/03/02.jpg", "fotos/03/03.jpg", "fotos/03/04.jpg"],
     video: "fotos/03/video.mp4",
-    coords: "41.1189°N 1.2445°E",
+    coords: "41.5051°N 2.3921°E",
     serial: "APH-01133",
     pantones: [
       { name: "Winter Wheat", code: "13-0916 TPX", hex: "#E3D2A8" },
@@ -65,7 +65,7 @@ var STONES = [
     img: "fotos/04/01.jpg",
     imgs: ["fotos/04/01.jpg", "fotos/04/02.jpg", "fotos/04/03.jpg", "fotos/04/04.jpg"],
     video: "fotos/04/video.mp4",
-    coords: "42.1408°N 2.9111°E",
+    coords: "41.5051°N 2.3921°E",
     serial: "APH-01149",
     pantones: [
       { name: "Rose Dust", code: "16-1511 TPX", hex: "#D9A98C" },
@@ -82,7 +82,7 @@ var STONES = [
     img: "fotos/05/01.jpg",
     imgs: ["fotos/05/01.jpg", "fotos/05/02.jpg", "fotos/05/03.jpg", "fotos/05/04.jpg"],
     video: "fotos/05/video.mp4",
-    coords: "41.5912°N 0.6199°E",
+    coords: "43.2630°N 2.9350°W",
     serial: "APH-01162",
     pantones: [
       { name: "Olive Branch", code: "18-0625 TPX", hex: "#7D7A5C" },
@@ -99,7 +99,7 @@ var STONES = [
     img: "fotos/06/01.jpg",
     imgs: ["fotos/06/01.jpg", "fotos/06/02.jpg", "fotos/06/03.jpg"],
     video: "fotos/06/video.mp4",
-    coords: "42.5063°N 1.5218°E",
+    coords: "41.3760°N 1.1622°E",
     serial: "APH-01177",
     pantones: [
       { name: "Simply Taupe", code: "16-1105 TPX", hex: "#A89A88" },
@@ -116,7 +116,7 @@ var STONES = [
     img: "fotos/07/01.jpg",
     imgs: ["fotos/07/01.jpg", "fotos/07/02.jpg", "fotos/07/03.jpg", "fotos/07/04.jpg"],
     video: "fotos/07/video.mp4",
-    coords: "41.2033°N 1.0906°E",
+    coords: "41.8467°N 3.1467°E",
     serial: "APH-01188",
     pantones: [
       { name: "Dusk Lilac", code: "16-1610 TPX", hex: "#C9A9AA" },
@@ -133,7 +133,7 @@ var STONES = [
     img: "fotos/08/01.jpg",
     imgs: ["fotos/08/01.jpg", "fotos/08/02.jpg", "fotos/08/03.jpg"],
     video: "fotos/08/video.mp4",
-    coords: "42.0201°N 1.8380°E",
+    coords: "27.6333°S 61.7000°W",
     serial: "APH-01203",
     pantones: [
       { name: "Silver Fox", code: "16-4204 TPX", hex: "#9FA3A5" },
