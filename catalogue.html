@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Marc Coderch</title>
+
+<style>
+  :root{
+    color-scheme: light;
+  }
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  body{
+    min-height: 100vh;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: 400;
+    color: #1a1a1a;
+  }
+
+  .top-nav{
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vh, 40px) 1.5rem 0;
+    text-align: center;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
+  }
+
+  .top-nav a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .top-nav a:hover{
+    text-decoration: underline;
+  }
+
+  /* --- Gallery --- */
+  #gallery{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(32px, 6vh, 64px) clamp(20px, 4vw, 48px) clamp(64px, 10vh, 120px);
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(20px, 3vw, 44px);
+  }
+
+  @media (max-width: 720px){
+    .grid{ grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 5vw, 28px); }
+  }
+
+  .grid-item{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .grid-item .photo{
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #f2f2f2;
+  }
+
+  .grid-item .photo img,
+  .grid-item .photo video{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .grid-item .photo img{
+    transition: opacity 0.25s ease;
+  }
+
+  .grid-item .photo video{
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+
+  .grid-item:hover .photo img{
+    opacity: 0;
+  }
+
+  .grid-item:hover .photo video{
+    opacity: 1;
+  }
+
+  .grid-item .coords{
+    margin-top: 0.6em;
+    text-align: center;
+    font-size: clamp(0.62rem, 1.1vw, 0.74rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #444444;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">Back</a>
+</div>
+
+<div id="gallery">
+  <div class="grid" id="grid"></div>
+</div>
+
+<script src="stones-data.js"></script>
+<script>
+  function buildGrid(){
+    var grid = document.getElementById("grid");
+    grid.innerHTML = "";
+    STONES.forEach(function(stone, i){
+      var item = document.createElement("a");
+      item.className = "grid-item";
+      item.href = "product.html?id=" + stone.id;
+      item.innerHTML =
+        '<div class="photo">' +
+          '<img src="' + stone.img + '" alt="Stone ' + (i + 1) + '" loading="lazy">' +
+          (stone.video ? '<video src="' + stone.video + '" muted loop playsinline preload="none"></video>' : '') +
+        '</div>' +
+        '<div class="coords">' + stone.coords + '</div>';
+      grid.appendChild(item);
+
+      if(stone.video){
+        var videoEl = item.querySelector("video");
+        item.addEventListener("mouseenter", function(){
+          videoEl.currentTime = 0;
+          videoEl.play().catch(function(){});
+        });
+        item.addEventListener("mouseleave", function(){
+          videoEl.pause();
+          videoEl.currentTime = 0;
+        });
+      }
+    });
+  }
+
+  buildGrid();
+</script>
+
+<script data-goatcounter="https://coderch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

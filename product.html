@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stone — Marc Coderch</title>
+
+<style>
+  :root{
+    color-scheme: light;
+  }
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  body{
+    min-height: 100vh;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: 400;
+    color: #1a1a1a;
+  }
+
+  .top-nav{
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vh, 40px) 1.5rem 0;
+    text-align: center;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .top-nav a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .top-nav a:hover{
+    text-decoration: underline;
+  }
+
+  .product-layout{
+    max-width: 1080px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: clamp(32px, 6vh, 64px) clamp(20px, 4vw, 48px) clamp(64px, 10vh, 120px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 5vw, 64px);
+    align-items: start;
+  }
+
+  .gallery{
+    max-height: 82vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 2vw, 18px);
+    scrollbar-width: thin;
+  }
+
+  .gallery img,
+  .gallery video{
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+    background: #f2f2f2;
+  }
+
+  .details{
+    max-height: 82vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 1vh, 9px);
+    padding-top: clamp(4px, 1vh, 12px);
+    scrollbar-width: thin;
+  }
+
+  .detail-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5em;
+    font-size: clamp(0.74rem, 1.5vw, 0.86rem);
+    font-weight: 400;
+  }
+
+  .detail-row .label{
+    color: #444444;
+    white-space: nowrap;
+  }
+
+  .detail-row .value{
+    text-align: right;
+    color: #1a1a1a;
+  }
+
+  .swatch{
+    display: inline-block;
+    width: 0.85em;
+    height: 0.85em;
+    border-radius: 0;
+    margin-right: 0.35em;
+    vertical-align: middle;
+    border: 1px solid rgba(0,0,0,0.12);
+  }
+
+  .pantone-line{
+    display: block;
+    line-height: 1.5;
+  }
+
+  .place-order{
+    margin-top: clamp(16px, 2.5vh, 22px);
+    text-align: center;
+  }
+
+  .place-order a{
+    font-family: inherit;
+    font-weight: 400;
+    font-size: clamp(0.74rem, 1.5vw, 0.86rem);
+    background: none;
+    border: none;
+    padding: 0;
+    color: #1a1a1a;
+    text-decoration: underline;
+  }
+
+  .stripe-badge{
+    margin-top: 0.5em;
+    text-align: center;
+    font-size: clamp(0.66rem, 1.3vw, 0.76rem);
+    color: #444444;
+  }
+
+  .stripe-badge b{
+    color: #635BFF;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .legal-links{
+    margin-top: clamp(20px, 3vh, 28px);
+    text-align: center;
+    font-size: clamp(0.66rem, 1.3vw, 0.76rem);
+    color: #444444;
+  }
+
+  .legal-links a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .legal-links a:hover{
+    text-decoration: underline;
+  }
+
+  .faq{
+    margin-top: clamp(28px, 4vh, 40px);
+    border-top: 1px solid #e6e6e6;
+    padding-top: clamp(8px, 2vh, 14px);
+  }
+
+  .faq details{
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .faq summary{
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7em 0;
+    font-size: clamp(0.74rem, 1.5vw, 0.86rem);
+  }
+
+  .faq summary::-webkit-details-marker{
+    display: none;
+  }
+
+  .faq summary::after{
+    content: "+";
+    color: #444444;
+    padding-left: 1em;
+  }
+
+  .faq details[open] summary::after{
+    content: "–";
+  }
+
+  .faq p{
+    margin: 0 0 1em;
+    font-size: clamp(0.7rem, 1.4vw, 0.8rem);
+    color: #444444;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 700px){
+    .product-layout{
+      grid-template-columns: 1fr;
+    }
+    .gallery{
+      max-height: none;
+      overflow-y: visible;
+    }
+    .details{
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="catalogue.html">Back</a>
+</div>
+
+<div class="product-layout">
+  <div class="gallery" id="gallery"></div>
+  <div class="details">
+    <div class="detail-row"><span class="label">Serial No.</span><span class="value" id="pSerial"></span></div>
+    <div class="detail-row"><span class="label">Location</span><span class="value" id="pCoords"></span></div>
+    <div class="detail-row"><span class="label">Pantone</span><span class="value" id="pPantone"></span></div>
+    <div class="detail-row"><span class="label">Weight</span><span class="value" id="pWeight"></span></div>
+    <div class="detail-row"><span class="label">Size</span><span class="value" id="pSize"></span></div>
+    <div class="detail-row"><span class="label">Hardness</span><span class="value" id="pHardness"></span></div>
+    <div class="detail-row"><span class="label">Stone</span><span class="value" id="pType"></span></div>
+    <div class="detail-row"><span class="label">Base</span><span class="value">Visible</span></div>
+    <div class="detail-row"><span class="label">Wood</span><span class="value">Oak</span></div>
+    <div class="detail-row"><span class="label">Ships</span><span class="value">Worldwide</span></div>
+    <div class="detail-row"><span class="label">Price</span><span class="value" id="pPrice"></span></div>
+
+    <div class="place-order">
+      <a href="#" id="pOrderLink">Place Order</a>
+      <div class="stripe-badge">Powered by <b>Stripe</b></div>
+    </div>
+
+    <div class="legal-links">
+      <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms and Conditions</a>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>Installation</summary>
+        <p>To install, simply unplug your lamp, plug it to the Pedra Plug®, and then plug it back again — next is magic!</p>
+      </details>
+      <details>
+        <summary>Warranty</summary>
+        <p>If it does not work, we'll fix it. This is forever.</p>
+      </details>
+      <details>
+        <summary>Shipping</summary>
+        <p>Insured, tracked shipping worldwide. Dispatched within 3–5 working days.</p>
+      </details>
+      <details>
+        <summary>Returns</summary>
+        <p>Returns accepted within 14 days if the piece is unused and in its original packaging.</p>
+      </details>
+      <details>
+        <summary>Care</summary>
+        <p>Wipe with a soft, dry cloth. Avoid solvents, water and prolonged direct sunlight.</p>
+      </details>
+      <details>
+        <summary>Authenticity</summary>
+        <p>Each stone is one of a kind — hand-selected and logged with its own serial number, coordinates and calibration.</p>
+      </details>
+    </div>
+  </div>
+</div>
+
+<script src="stones-data.js"></script>
+<script>
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get("id");
+  var stone = STONES.find(function(s){ return s.id === id; }) || STONES[0];
+
+  var imgs = stone.imgs || [stone.img];
+  var galleryEl = document.getElementById("gallery");
+  imgs.forEach(function(src, i){
+    var img = document.createElement("img");
+    img.src = src;
+    img.alt = "Stone " + stone.id + (imgs.length > 1 ? " — photo " + (i + 1) : "");
+    img.loading = i === 0 ? "eager" : "lazy";
+    galleryEl.appendChild(img);
+  });
+
+  if(stone.video){
+    var video = document.createElement("video");
+    video.src = stone.video;
+    video.controls = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    galleryEl.appendChild(video);
+  }
+
+  document.getElementById("pOrderLink").href =
+    "mailto:marc.coderch.verges@gmail.com?subject=" +
+    encodeURIComponent("Order inquiry — Stone " + stone.serial);
+
+  document.getElementById("pSerial").textContent = stone.serial;
+  document.getElementById("pCoords").textContent = stone.coords;
+  document.getElementById("pWeight").textContent = stone.weight;
+  document.getElementById("pSize").textContent = stone.size;
+  document.getElementById("pHardness").textContent = stone.hardness;
+  document.getElementById("pType").textContent = stone.type;
+  document.getElementById("pPrice").textContent = stone.price;
+
+  var pantoneEl = document.getElementById("pPantone");
+  pantoneEl.innerHTML = stone.pantones.map(function(p){
+    return '<span class="pantone-line"><span class="swatch" style="background:' + p.hex + '"></span>' + p.name + ' (' + p.code + ')</span>';
+  }).join("");
+
+  document.title = "Stone " + stone.serial + " — Marc Coderch";
+</script>
+
+<script data-goatcounter="https://coderch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

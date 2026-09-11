@@ -6,7 +6,6 @@
 <title>Marc Coderch - Product, Technology</title>
 <meta name="description" content="Marc Coderch — product and technology designer working at the edge of technology and natural material. Get in touch.">
 <meta name="author" content="Marc Coderch">
-<meta name="google-site-verification" content="gd96jrdWke_9L0_yuEkWN3QfpI7BMY81-PTULqNT6o4" />
 <link rel="canonical" href="https://marccoderchverges-byte.github.io/">
 
 <meta property="og:type" content="website">
@@ -53,64 +52,46 @@
     min-height: 100vh;
     overflow: hidden;
     font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: 400;
   }
 
-  .stone-link{
-    position: relative;
-    display: inline-flex;
+  .layout{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto auto;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
+    gap: clamp(20px, 4.5vh, 40px) clamp(20px, 5vw, 64px);
+    padding: 0 1rem;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .dir-link{
+    font-family: inherit;
+    font-weight: 400;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .dir-link:hover{
+    text-decoration: underline;
+  }
+
+  .dir-top{ grid-column: 2; grid-row: 1; }
+  .dir-left{ grid-column: 1; grid-row: 2; justify-self: end; display: inline-block; min-width: 5.5em; text-align: right; }
+  .dir-right{ grid-column: 3; grid-row: 2; justify-self: start; display: inline-block; min-width: 5.5em; text-align: left; }
+
+  .stone-photo{
+    grid-column: 2;
+    grid-row: 2;
     width: clamp(190px, 32vw, 340px);
     aspect-ratio: 4 / 5;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .stone-link:focus{
-    outline: none;
-  }
-  .stone-link:focus-visible{
-    outline: 1px solid #bbb;
-    outline-offset: 12px;
-  }
-
-  .stone-img{
-    width: 100%;
-    height: 100%;
-    display: block;
     object-fit: cover;
     object-position: center;
-    filter: drop-shadow(0 14px 20px rgba(0,0,0,0.14));
-  }
-
-  .email{
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 0.75rem;
-    opacity: 0;
-    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
-    line-height: 1.7;
-    color: #444444;
-    background: #ffffff;
-    pointer-events: none;
-  }
-
-  .stone-link:hover .stone-img,
-  .stone-link:focus-visible .stone-img,
-  .stone-link.touched .stone-img{
-    opacity: 0;
-  }
-
-  .stone-link:hover .email,
-  .stone-link:focus-visible .email,
-  .stone-link.touched .email{
-    opacity: 1;
+    display: block;
   }
 
   .bottom-contact{
@@ -134,37 +115,15 @@
     text-decoration: underline;
   }
 
-  .home-stack{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(20px, 4vh, 36px);
-  }
-
-  .shop-note{
-    max-width: 420px;
-    text-align: center;
-    font-family: inherit;
-    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
-    line-height: 1.7;
-    color: #444444;
-    padding: 0 1.5rem;
-  }
-
 </style>
 </head>
 <body>
 
-<div class="home-stack">
-  <div class="shop-note">To shop please reach out through email. We can either work with your stone or we can provide ours. We ship worldwide.</div>
-
-  <a href="mailto:marc.coderch.verges@gmail.com"
-     class="stone-link"
-     id="stoneLink"
-     aria-label="Envia un correu a marc.coderch.verges@gmail.com">
-    <img class="stone-img" id="stoneImg" src="" alt="" aria-hidden="true">
-    <span class="email" id="emailLabel">marc.coderch.verges@gmail.com</span>
-  </a>
+<div class="layout">
+  <a href="catalogue.html" class="dir-link dir-top">Shop</a>
+  <a href="system.html" class="dir-link dir-left">System</a>
+  <img class="stone-photo" id="stoneImg" src="" alt="">
+  <a href="projects.html" class="dir-link dir-right">Projects</a>
 </div>
 
 <div class="bottom-contact">
@@ -172,23 +131,20 @@
   Contact at <a href="mailto:marc.coderch.verges@gmail.com">marc.coderch.verges@gmail.com</a>
   &middot; <a href="tel:+34666167893">+34 666 167 893</a>
   &middot; <a href="https://instagram.com/coderch__online" target="_blank" rel="noopener">@coderch__online</a>
-  &middot; Avinguda Fabregada 22, 08907 L'Hospitalet de Llobregat
+  &middot; Avinguda Fabregada 22, 08907 L'Hospitalet de Llobregat<br>
+  <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms and Conditions</a>
 </div>
 
 <script>
   var stones = [
-    "fotos/pedra-01.jpg",
-    "fotos/pedra-02.jpg",
-    "fotos/pedra-03.jpg",
-    "fotos/pedra-04.jpg",
-    "fotos/pedra-05.jpg",
-    "fotos/pedra-06.jpg",
-    "fotos/pedra-07.jpg",
-    "fotos/pedra-08.jpg",
-    "fotos/pedra-09.jpg",
-    "fotos/pedra-10.jpg",
-    "fotos/pedra-11.jpg",
-    "fotos/pedra-12.jpg"
+    "fotos/01/01.jpg",
+    "fotos/02/01.jpg",
+    "fotos/03/01.jpg",
+    "fotos/04/01.jpg",
+    "fotos/05/01.jpg",
+    "fotos/06/01.jpg",
+    "fotos/07/01.jpg",
+    "fotos/08/01.jpg"
   ];
 
   (function initStone(){
@@ -211,17 +167,9 @@
     try{ localStorage.setItem(STORAGE_KEY, String(idx)); }catch(e){}
 
     document.getElementById("stoneImg").src = stones[idx];
-
-    // Touch support: tapping toggles the reveal state before the mailto fires,
-    // and a second tap outside clears it.
-    var link = document.getElementById("stoneLink");
-    link.addEventListener("touchstart", function(){
-      link.classList.add("touched");
-    }, {passive: true});
   })();
 </script>
 
 <script data-goatcounter="https://coderch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
 </body>
 </html>

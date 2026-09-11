@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System — Marc Coderch</title>
+
+<style>
+  :root{
+    color-scheme: light;
+  }
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  body{
+    min-height: 100vh;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: 400;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-nav{
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vh, 40px) 1.5rem 0;
+    text-align: center;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
+  }
+
+  .top-nav a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .top-nav a:hover{
+    text-decoration: underline;
+  }
+
+  main{
+    width: 100%;
+    max-width: 560px;
+    box-sizing: border-box;
+    padding: clamp(48px, 8vh, 96px) 1.5rem clamp(64px, 10vh, 120px);
+    text-align: center;
+  }
+
+  .section-title{
+    margin: 0 0 clamp(32px, 6vh, 56px);
+    font-weight: 400;
+    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    color: #444444;
+  }
+
+  .content p{
+    margin: 0 0 1.1em;
+    font-size: clamp(0.78rem, 1.6vw, 0.92rem);
+    line-height: 1.75;
+  }
+
+  .content p.equation{
+    margin: 0.4em 0 1.6em;
+    font-style: italic;
+    letter-spacing: 0.02em;
+  }
+
+  .content p:last-child{
+    margin-bottom: 0;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">Back</a>
+</div>
+
+<main>
+  <div class="section-title">System</div>
+  <div class="content">
+    <p>A dielectric body holds a capacitance:</p>
+    <p class="equation">C = ε₀ εr A / d</p>
+    <p>A hand at the surface adds to it. What is added is orders of magnitude smaller than what is already there:</p>
+    <p class="equation">ΔC / C₀ &lt; 10⁻²</p>
+    <p>And the baseline is not fixed. It moves with temperature and humidity:</p>
+    <p class="equation">C₀ = C₀(t)</p>
+    <p>Detection occurs when ΔC crosses a threshold. The threshold is set per stone, because density, porosity and retained water put it somewhere different every time. Each unit is calibrated alone. There is no general value.</p>
+    <p>What follows is one encoded instruction, sent once, at a wavelength long enough that walls are not a factor:</p>
+    <p class="equation">λ = c / f</p>
+  </div>
+</main>
+
+<script data-goatcounter="https://coderch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
