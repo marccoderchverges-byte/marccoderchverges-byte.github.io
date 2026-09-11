@@ -279,14 +279,6 @@
 
 <script src="stones-data.js"></script>
 <script>
-  // Soft gate: this page only makes sense reached from an unlocked
-  // Shop, so keep it behind the same placeholder check.
-  try{
-    if(sessionStorage.getItem("catalogue-unlocked") !== "1"){
-      window.location.replace("catalogue.html");
-    }
-  }catch(e){}
-
   var params = new URLSearchParams(window.location.search);
   var id = params.get("id");
   var stone = STONES.find(function(s){ return s.id === id; }) || STONES[0];

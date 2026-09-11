@@ -40,71 +40,8 @@
     text-decoration: underline;
   }
 
-  /* --- Password gate --- */
-  #gate{
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.2em;
-    padding: 1.5rem;
-    text-align: center;
-  }
-
-  #gateForm{
-    display: flex;
-    gap: 0.6em;
-  }
-
-  #gatePassword{
-    font-family: inherit;
-    font-size: 0.95rem;
-    padding: 0.5em 0.7em;
-    border: 1px solid #cccccc;
-    background: #ffffff;
-    color: #1a1a1a;
-    outline: none;
-  }
-
-  #gatePassword:focus{
-    border-color: #999999;
-  }
-
-  #gateForm button{
-    font-family: inherit;
-    font-weight: 400;
-    font-size: 0.95rem;
-    padding: 0.5em 1.1em;
-    border: 1px solid #1a1a1a;
-    background: #1a1a1a;
-    color: #ffffff;
-    cursor: pointer;
-  }
-
-  #gateForm button:hover{
-    background: #333333;
-  }
-
-  #gateError{
-    font-size: 0.78rem;
-    color: #a33;
-    min-height: 1.2em;
-  }
-
-  #gateNote{
-    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
-    font-weight: 400;
-    color: #444444;
-  }
-
-  #gateNote a{
-    color: inherit;
-  }
-
   /* --- Gallery --- */
   #gallery{
-    display: none;
     max-width: 1200px;
     margin: 0 auto;
     padding: clamp(32px, 6vh, 64px) clamp(20px, 4vw, 48px) clamp(64px, 10vh, 120px);
@@ -177,27 +114,12 @@
   <a href="index.html">Back</a>
 </div>
 
-<!-- Placeholder client-side gate: not real security (source/images are still
-     reachable in devtools). Fine as a soft placeholder wall for now; swap for
-     a proper backend/auth before this is a real store. Password: pedra2026 -->
-<div id="gate">
-  <form id="gateForm">
-    <input type="password" id="gatePassword" placeholder="Password" autocomplete="off">
-    <button type="submit">Enter</button>
-  </form>
-  <div id="gateError"></div>
-  <div id="gateNote">To request access, send an email to <a href="mailto:marc.coderch.verges@gmail.com">marc.coderch.verges@gmail.com</a></div>
-</div>
-
 <div id="gallery">
   <div class="grid" id="grid"></div>
 </div>
 
 <script src="stones-data.js"></script>
 <script>
-  var CATALOGUE_PASSWORD = "pedra2026";
-  var SESSION_KEY = "catalogue-unlocked";
-
   function buildGrid(){
     var grid = document.getElementById("grid");
     grid.innerHTML = "";
@@ -227,28 +149,7 @@
     });
   }
 
-  function unlock(){
-    document.getElementById("gate").style.display = "none";
-    document.getElementById("gallery").style.display = "block";
-    buildGrid();
-  }
-
-  try{
-    if(sessionStorage.getItem(SESSION_KEY) === "1"){
-      unlock();
-    }
-  }catch(e){}
-
-  document.getElementById("gateForm").addEventListener("submit", function(ev){
-    ev.preventDefault();
-    var val = document.getElementById("gatePassword").value;
-    if(val === CATALOGUE_PASSWORD){
-      try{ sessionStorage.setItem(SESSION_KEY, "1"); }catch(e){}
-      unlock();
-    }else{
-      document.getElementById("gateError").textContent = "Incorrect password.";
-    }
-  });
+  buildGrid();
 </script>
 
 </body>
