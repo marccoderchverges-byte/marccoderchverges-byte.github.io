@@ -24,7 +24,7 @@ var STONES = [
     size: "8.5 × 7.2 × 5.5 cm",
     hardness: "6.5 (Mohs)",
     type: "Gneiss",
-    price: "€340"
+    price: "€250"
   },
   {
     id: "02",
@@ -41,7 +41,7 @@ var STONES = [
     size: "8.0 × 7.5 × 6.0 cm",
     hardness: "6 (Mohs)",
     type: "Gabbro",
-    price: "€360"
+    price: "€250"
   },
   {
     id: "03",
@@ -58,7 +58,7 @@ var STONES = [
     size: "8.8 × 6.5 × 4.0 cm",
     hardness: "3.5 (Mohs)",
     type: "Limestone",
-    price: "€260"
+    price: "€250"
   },
   {
     id: "04",
@@ -75,7 +75,7 @@ var STONES = [
     size: "7.5 × 5.5 × 4.2 cm",
     hardness: "6.5 (Mohs)",
     type: "Granite",
-    price: "€320"
+    price: "€250"
   },
   {
     id: "05",
@@ -92,7 +92,7 @@ var STONES = [
     size: "7.0 × 5.0 × 4.0 cm",
     hardness: "5 (Mohs)",
     type: "Schist",
-    price: "€290"
+    price: "€250"
   },
   {
     id: "06",
@@ -109,7 +109,7 @@ var STONES = [
     size: "7.5 × 6.5 × 5.0 cm",
     hardness: "7 (Mohs)",
     type: "Quartz vein rock",
-    price: "€310"
+    price: "€250"
   },
   {
     id: "07",
@@ -126,7 +126,7 @@ var STONES = [
     size: "6.5 × 5.0 × 4.0 cm",
     hardness: "3.5 (Mohs)",
     type: "Dolomite",
-    price: "€270"
+    price: "€250"
   },
   {
     id: "08",
@@ -143,6 +143,6 @@ var STONES = [
     size: "4.5 × 3.8 × 2.5 cm",
     hardness: "5 (Mohs)",
     type: "Meteorite",
-    price: "€480"
+    price: "€300"
   }
 ];

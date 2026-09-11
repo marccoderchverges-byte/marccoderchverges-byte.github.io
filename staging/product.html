@@ -121,7 +121,7 @@
     text-align: center;
   }
 
-  .place-order button{
+  .place-order a{
     font-family: inherit;
     font-weight: 400;
     font-size: clamp(0.74rem, 1.5vw, 0.86rem);
@@ -130,7 +130,6 @@
     padding: 0;
     color: #1a1a1a;
     text-decoration: underline;
-    cursor: default;
   }
 
   .stripe-badge{
@@ -144,6 +143,22 @@
     color: #635BFF;
     font-weight: 700;
     letter-spacing: -0.01em;
+  }
+
+  .legal-links{
+    margin-top: clamp(20px, 3vh, 28px);
+    text-align: center;
+    font-size: clamp(0.66rem, 1.3vw, 0.76rem);
+    color: #444444;
+  }
+
+  .legal-links a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .legal-links a:hover{
+    text-decoration: underline;
   }
 
   .faq{
@@ -225,8 +240,12 @@
     <div class="detail-row"><span class="label">Price</span><span class="value" id="pPrice"></span></div>
 
     <div class="place-order">
-      <button type="button" aria-disabled="true">Place Order</button>
+      <a href="#" id="pOrderLink">Place Order</a>
       <div class="stripe-badge">Powered by <b>Stripe</b></div>
+    </div>
+
+    <div class="legal-links">
+      <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms and Conditions</a>
     </div>
 
     <div class="faq">
@@ -292,6 +311,10 @@
     video.preload = "metadata";
     galleryEl.appendChild(video);
   }
+
+  document.getElementById("pOrderLink").href =
+    "mailto:marc.coderch.verges@gmail.com?subject=" +
+    encodeURIComponent("Order inquiry — Stone " + stone.serial);
 
   document.getElementById("pSerial").textContent = stone.serial;
   document.getElementById("pCoords").textContent = stone.coords;
