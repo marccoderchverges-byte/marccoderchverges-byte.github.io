@@ -144,5 +144,22 @@ var STONES = [
     hardness: "5 (Mohs)",
     type: "Meteorite",
     price: "€300"
+  },
+  {
+    id: "09",
+    img: "fotos/09/01.jpg",
+    imgs: ["fotos/09/01.jpg", "fotos/09/02.jpg", "fotos/09/03.jpg", "fotos/09/04.jpg"],
+    video: "fotos/09/video.mp4",
+    coords: "42.1078°N 3.1688°E",
+    serial: "APH-01218",
+    pantones: [
+      { name: "Chinchilla", code: "15-1305 TPX", hex: "#BEB1A0" },
+      { name: "Iron", code: "18-0403 TPX", hex: "#4A4640" }
+    ],
+    weight: "270 g",
+    size: "9.0 × 7.0 × 5.0 cm",
+    hardness: "3 (Mohs)",
+    type: "Calcarenite",
+    price: "€250"
   }
 ];
