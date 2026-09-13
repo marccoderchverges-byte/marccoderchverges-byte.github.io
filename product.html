@@ -115,6 +115,16 @@
     line-height: 1.5;
   }
 
+  .sold-dot{
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: #c0392b;
+    margin-right: 0.45em;
+    vertical-align: middle;
+  }
+
   .place-order{
     margin-top: clamp(16px, 2.5vh, 22px);
     text-align: center;
@@ -303,12 +313,20 @@
     galleryEl.appendChild(video);
   }
 
-  document.getElementById("pOrderLink").href =
-    "mailto:marc.coderch.verges@gmail.com?subject=" +
-    encodeURIComponent("Order inquiry — Stone " + stone.serial);
+  var orderLink = document.getElementById("pOrderLink");
+  if(stone.sold){
+    orderLink.href = "#";
+    orderLink.textContent = "Sold";
+    orderLink.style.pointerEvents = "none";
+    orderLink.style.textDecoration = "none";
+  }else{
+    orderLink.href =
+      "mailto:marc.coderch.verges@gmail.com?subject=" +
+      encodeURIComponent("Order inquiry — Stone " + stone.serial);
+  }
 
   document.getElementById("pSerial").textContent = stone.serial;
-  document.getElementById("pCoords").textContent = stone.coords;
+  document.getElementById("pCoords").innerHTML = (stone.sold ? '<span class="sold-dot"></span>' : '') + stone.coords;
   document.getElementById("pWeight").textContent = stone.weight;
   document.getElementById("pSize").textContent = stone.size;
   document.getElementById("pHardness").textContent = stone.hardness;

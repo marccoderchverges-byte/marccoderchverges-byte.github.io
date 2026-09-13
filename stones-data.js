@@ -109,7 +109,8 @@ var STONES = [
     size: "7.5 × 6.5 × 5.0 cm",
     hardness: "7 (Mohs)",
     type: "Quartz vein rock",
-    price: "€250"
+    price: "€250",
+    sold: true
   },
   {
     id: "07",

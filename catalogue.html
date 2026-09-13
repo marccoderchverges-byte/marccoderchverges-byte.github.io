@@ -105,6 +105,16 @@
     letter-spacing: 0.02em;
     color: #444444;
   }
+
+  .sold-dot{
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: #c0392b;
+    margin-right: 0.45em;
+    vertical-align: middle;
+  }
 </style>
 </head>
 <body>
@@ -131,7 +141,7 @@
           '<img src="' + stone.img + '" alt="Stone ' + (i + 1) + '" loading="lazy">' +
           (stone.video ? '<video src="' + stone.video + '" muted loop playsinline preload="none"></video>' : '') +
         '</div>' +
-        '<div class="coords">' + stone.coords + '</div>';
+        '<div class="coords">' + (stone.sold ? '<span class="sold-dot"></span>' : '') + stone.coords + '</div>';
       grid.appendChild(item);
 
       if(stone.video){
