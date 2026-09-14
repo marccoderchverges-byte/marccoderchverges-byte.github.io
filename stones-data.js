@@ -31,7 +31,7 @@ var STONES = [
     img: "fotos/02/01.jpg",
     imgs: ["fotos/02/01.jpg", "fotos/02/02.jpg", "fotos/02/03.jpg"],
     video: "fotos/02/video.mp4",
-    coords: "63.4188°N 19.0060°W",
+    coords: "63.9768°N 19.0681°W",
     serial: "APH-01118",
     pantones: [
       { name: "Jet Black", code: "19-0303 TPX", hex: "#201F1E" },
