@@ -51,17 +51,20 @@
     text-align: center;
   }
 
-  .placeholder{
+  .message{
     font-weight: 400;
     font-size: clamp(0.68rem, 1.4vw, 0.82rem);
-    color: #999999;
+    color: #1a1a1a;
   }
 
   .site-footer{
-    width: 100%;
+    position: fixed;
+    bottom: clamp(18px, 4vh, 44px);
+    left: 0;
+    right: 0;
     box-sizing: border-box;
     text-align: center;
-    padding: clamp(24px, 4vh, 40px) 1.5rem clamp(32px, 5vh, 56px);
+    padding: 0 1.5rem;
     font-size: clamp(0.68rem, 1.4vw, 0.82rem);
     line-height: 1.7;
     color: #444444;
@@ -85,7 +88,7 @@
 </div>
 
 <main>
-  <div class="placeholder">For collaborations please reach out through email.</div>
+  <div class="message">Open to Collaborate, please reach out through email.</div>
 </main>
 
 <footer class="site-footer">
