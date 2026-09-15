@@ -80,6 +80,14 @@
     text-decoration: underline;
   }
 
+  .top-shop{
+    position: fixed;
+    top: clamp(18px, 4vh, 44px);
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
   .bottom-contact{
     position: fixed;
     bottom: clamp(18px, 4vh, 44px);
@@ -105,10 +113,13 @@
 </head>
 <body>
 
+<div class="top-shop">
+  <a href="catalogue.html" class="dir-link">Shop</a>
+</div>
+
 <div class="layout">
   <a href="system.html" class="dir-link">System</a>
   <a href="installation.html" class="dir-link">Installation</a>
-  <a href="catalogue.html" class="dir-link">Shop</a>
   <a href="projects.html" class="dir-link">Projects</a>
   <a href="collaborations.html" class="dir-link">Collaborations</a>
 </div>
