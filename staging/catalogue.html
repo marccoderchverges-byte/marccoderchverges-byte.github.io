@@ -98,13 +98,23 @@
     opacity: 1;
   }
 
-  .grid-item .coords{
+  .grid-item .info{
     margin-top: 0.6em;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6em;
     font-size: clamp(0.62rem, 1.1vw, 0.74rem);
     font-weight: 400;
     letter-spacing: 0.02em;
     color: #444444;
+  }
+
+  .grid-item .info .type{
+    text-align: left;
+  }
+
+  .grid-item .info .coords{
+    text-align: right;
   }
 
   .site-footer{
@@ -160,7 +170,7 @@
           '<img src="' + stone.img + '" alt="Stone ' + (i + 1) + '" loading="lazy">' +
           (stone.video ? '<video src="' + stone.video + '" muted loop playsinline preload="none"></video>' : '') +
         '</div>' +
-        '<div class="coords">' + stone.coords + ' &middot; ' + stone.type + '</div>';
+        '<div class="info"><span class="type">' + stone.type + '</span><span class="coords">' + stone.coords + '</span></div>';
       grid.appendChild(item);
 
       if(stone.video){
