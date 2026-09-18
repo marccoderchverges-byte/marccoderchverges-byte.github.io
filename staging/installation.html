@@ -45,23 +45,20 @@
 
   main{
     width: 100%;
-    max-width: 720px;
+    max-width: 960px;
     box-sizing: border-box;
-    padding: clamp(48px, 8vh, 96px) 1.5rem clamp(64px, 10vh, 120px);
-    text-align: center;
+    padding: 0 1.5rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .section-title{
-    margin: 0 0 clamp(24px, 4vh, 40px);
-    font-weight: 400;
-    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
-    color: #444444;
-  }
-
-  .placeholder{
-    font-weight: 400;
-    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
-    color: #999999;
+  .install-video{
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
   }
 
   .site-footer{
@@ -92,8 +89,7 @@
 </div>
 
 <main>
-  <div class="section-title">Installation</div>
-  <div class="placeholder">Coming soon.</div>
+  <video class="install-video" src="videos/pedra-v2.mp4" autoplay muted loop playsinline controls></video>
 </main>
 
 <footer class="site-footer">
