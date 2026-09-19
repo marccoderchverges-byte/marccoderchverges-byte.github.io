@@ -58,10 +58,45 @@
     color: #444444;
   }
 
-  .placeholder{
-    font-weight: 400;
-    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
-    color: #999999;
+  .faq{
+    text-align: left;
+    border-top: 1px solid #e6e6e6;
+  }
+
+  .faq details{
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .faq summary{
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5em;
+    padding: 0.7em 0;
+    font-size: clamp(0.8rem, 1.6vw, 0.92rem);
+  }
+
+  .faq summary::-webkit-details-marker{
+    display: none;
+  }
+
+  .faq summary::after{
+    content: "+";
+    color: #444444;
+    padding-left: 1em;
+  }
+
+  .faq details[open] summary::after{
+    content: "–";
+  }
+
+  .faq p{
+    margin: 0 0 1em;
+    font-size: clamp(0.76rem, 1.5vw, 0.86rem);
+    color: #444444;
+    line-height: 1.6;
   }
 
   .site-footer{
@@ -93,7 +128,53 @@
 
 <main>
   <div class="section-title">FAQS</div>
-  <div class="placeholder">Coming soon.</div>
+
+  <div class="faq">
+    <details>
+      <summary>How does it work?</summary>
+      <p>We&rsquo;ve designed and patented a solution that makes stones touch sensitive and, thus, are able to turn on lights wirelessly.</p>
+    </details>
+    <details>
+      <summary>Does it work with all stones?</summary>
+      <p>As of today, volcanic stones remain the only one which we&rsquo;ve not been able to work with. All other stones have worked perfectly.</p>
+    </details>
+    <details>
+      <summary>Can I send my own stone?</summary>
+      <p>That&rsquo;s an awesome plan. We love to work with your stones. Just send us an email so we can check that it fits.</p>
+    </details>
+    <details>
+      <summary>What type of products do you have?</summary>
+      <p>Depending on the size of the stone the electronics are either inserted inside or in a wooden base. For more complex projects please reach out through email.</p>
+    </details>
+    <details>
+      <summary>Where do you ship from?</summary>
+      <p>This is designed by us in Barcelona. Paella and stones. Rock and Roll.</p>
+    </details>
+    <details>
+      <summary>Installation</summary>
+      <p>To install, simply unplug your lamp, plug it to the Pedra Plug&reg;, and then plug it back again &mdash; next is magic!</p>
+    </details>
+    <details>
+      <summary>Warranty</summary>
+      <p>If it does not work, we'll fix it. This is forever.</p>
+    </details>
+    <details>
+      <summary>Shipping</summary>
+      <p>Insured, tracked shipping worldwide. Dispatched within 3&ndash;5 working days.</p>
+    </details>
+    <details>
+      <summary>Returns</summary>
+      <p>Returns accepted within 14 days if the piece is unused and in its original packaging.</p>
+    </details>
+    <details>
+      <summary>Care</summary>
+      <p>Wipe with a soft, dry cloth. Avoid solvents, water and prolonged direct sunlight.</p>
+    </details>
+    <details>
+      <summary>Authenticity</summary>
+      <p>Each stone is one of a kind &mdash; hand-selected and logged with its own serial number, coordinates and calibration.</p>
+    </details>
+  </div>
 </main>
 
 <footer class="site-footer">
