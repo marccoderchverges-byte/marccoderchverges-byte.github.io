@@ -56,15 +56,16 @@
 
   .process-strip{
     width: 100%;
-    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 clamp(12px, 2vw, 24px);
     margin-bottom: clamp(48px, 8vh, 96px);
   }
 
   .process-track{
     display: flex;
-    width: max-content;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: clamp(12px, 2vw, 24px);
-    animation: process-scroll 14s linear infinite;
   }
 
   .process-photo{
@@ -73,11 +74,6 @@
     display: block;
     object-fit: cover;
     background: #f2f2f2;
-  }
-
-  @keyframes process-scroll{
-    from{ transform: translateX(-50%); }
-    to{ transform: translateX(0%); }
   }
 
   .site-footer{
@@ -115,12 +111,6 @@
     <img class="process-photo" src="fotos/process/process-02.jpg" alt="Proces">
     <img class="process-photo" src="fotos/process/process-03.jpg" alt="Proces">
     <img class="process-photo" src="fotos/process/process-04.jpg" alt="Proces">
-    <img class="process-photo" src="fotos/process/process-05.jpg" alt="Proces">
-    <img class="process-photo" src="fotos/process/process-01.jpg" alt="Proces">
-    <img class="process-photo" src="fotos/process/process-02.jpg" alt="Proces">
-    <img class="process-photo" src="fotos/process/process-03.jpg" alt="Proces">
-    <img class="process-photo" src="fotos/process/process-04.jpg" alt="Proces">
-    <img class="process-photo" src="fotos/process/process-05.jpg" alt="Proces">
   </div>
 </div>
 
