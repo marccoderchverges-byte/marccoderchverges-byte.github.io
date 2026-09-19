@@ -19,6 +19,8 @@
     font-family: "Times New Roman", Times, Georgia, serif;
     font-weight: 400;
     color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
   }
 
   .top-nav{
@@ -26,7 +28,7 @@
     box-sizing: border-box;
     padding: clamp(20px, 4vh, 40px) 1.5rem 0;
     text-align: center;
-    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
     color: #444444;
   }
 
@@ -97,13 +99,23 @@
     opacity: 1;
   }
 
-  .grid-item .coords{
+  .grid-item .info{
     margin-top: 0.6em;
-    text-align: center;
-    font-size: clamp(0.62rem, 1.1vw, 0.74rem);
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6em;
+    font-size: clamp(0.68rem, 1.2vw, 0.8rem);
     font-weight: 400;
     letter-spacing: 0.02em;
     color: #444444;
+  }
+
+  .grid-item .info .type{
+    text-align: left;
+  }
+
+  .grid-item .info .coords{
+    text-align: right;
   }
 
   .sold-dot{
@@ -114,6 +126,25 @@
     background: #c0392b;
     margin-right: 0.45em;
     vertical-align: middle;
+  }
+
+  .site-footer{
+    width: 100%;
+    margin-top: auto;
+    box-sizing: border-box;
+    text-align: center;
+    padding: clamp(24px, 4vh, 40px) 1.5rem clamp(32px, 5vh, 56px);
+    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
+    color: #444444;
+  }
+
+  .site-footer a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-footer a:hover{
+    text-decoration: underline;
   }
 </style>
 </head>
@@ -126,6 +157,10 @@
 <div id="gallery">
   <div class="grid" id="grid"></div>
 </div>
+
+<footer class="site-footer">
+  <a href="contact.html">Contact</a>
+</footer>
 
 <script src="stones-data.js"></script>
 <script>
@@ -141,7 +176,7 @@
           '<img src="' + stone.img + '" alt="Stone ' + (i + 1) + '" loading="lazy">' +
           (stone.video ? '<video src="' + stone.video + '" muted loop playsinline preload="none"></video>' : '') +
         '</div>' +
-        '<div class="coords">' + (stone.sold ? '<span class="sold-dot"></span>' : '') + stone.coords + '</div>';
+        '<div class="info"><span class="type">' + stone.type + '</span><span class="coords">' + (stone.sold ? '<span class="sold-dot"></span>' : '') + stone.coords + '</span></div>';
       grid.appendChild(item);
 
       if(stone.video){

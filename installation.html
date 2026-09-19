@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects — Marc Coderch</title>
+<title>Installation — Marc Coderch</title>
 
 <style>
   :root{
@@ -44,23 +44,20 @@
 
   main{
     width: 100%;
-    max-width: 720px;
+    max-width: 960px;
     box-sizing: border-box;
-    padding: clamp(48px, 8vh, 96px) 1.5rem clamp(64px, 10vh, 120px);
-    text-align: center;
+    padding: 0 1.5rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .section-title{
-    margin: 0 0 clamp(24px, 4vh, 40px);
-    font-weight: 400;
-    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
-    color: #444444;
-  }
-
-  .placeholder{
-    font-weight: 400;
-    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
-    color: #999999;
+  .install-video{
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
   }
 
   .site-footer{
@@ -91,13 +88,34 @@
 </div>
 
 <main>
-  <div class="section-title">Projects</div>
-  <div class="placeholder">Coming soon.</div>
+  <video class="install-video" id="installVideo" src="videos/pedra-v2.mp4" loop playsinline controls></video>
 </main>
 
 <footer class="site-footer">
   <a href="contact.html">Contact</a>
 </footer>
+
+<script>
+  var v = document.getElementById('installVideo');
+  var tryUnmutedPlay = function(){
+    v.muted = false;
+    var p = v.play();
+    if (p && p.catch){
+      p.catch(function(){
+        v.muted = true;
+        v.play().catch(function(){});
+        var unmute = function(){
+          v.muted = false;
+          document.removeEventListener('click', unmute);
+          document.removeEventListener('touchstart', unmute);
+        };
+        document.addEventListener('click', unmute, { once: true });
+        document.addEventListener('touchstart', unmute, { once: true });
+      });
+    }
+  };
+  tryUnmutedPlay();
+</script>
 
 <script data-goatcounter="https://coderch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

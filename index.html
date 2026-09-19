@@ -56,13 +56,12 @@
   }
 
   .layout{
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: auto auto;
+    display: flex;
     align-items: center;
-    justify-items: center;
-    gap: clamp(20px, 4.5vh, 40px) clamp(20px, 5vw, 64px);
-    padding: 0 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(18px, 3.5vw, 48px);
+    padding: 0 1.5rem;
     box-sizing: border-box;
     max-width: 100%;
   }
@@ -70,7 +69,7 @@
   .dir-link{
     font-family: inherit;
     font-weight: 400;
-    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
     color: #444444;
     text-decoration: none;
     white-space: nowrap;
@@ -80,18 +79,12 @@
     text-decoration: underline;
   }
 
-  .dir-top{ grid-column: 2; grid-row: 1; }
-  .dir-left{ grid-column: 1; grid-row: 2; justify-self: end; display: inline-block; min-width: 5.5em; text-align: right; }
-  .dir-right{ grid-column: 3; grid-row: 2; justify-self: start; display: inline-block; min-width: 5.5em; text-align: left; }
-
-  .stone-photo{
-    grid-column: 2;
-    grid-row: 2;
-    width: clamp(190px, 32vw, 340px);
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: center;
-    display: block;
+  .top-shop{
+    position: fixed;
+    top: clamp(18px, 4vh, 44px);
+    left: 0;
+    right: 0;
+    text-align: center;
   }
 
   .bottom-contact{
@@ -100,76 +93,26 @@
     left: 0;
     right: 0;
     text-align: center;
-    padding: 0 1.5rem;
-    font-size: clamp(0.68rem, 1.4vw, 0.82rem);
-    line-height: 1.7;
-    color: #444444;
-  }
-
-  .bottom-contact a{
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .bottom-contact a:hover{
-    text-decoration: underline;
   }
 
 </style>
 </head>
 <body>
 
+<div class="top-shop">
+  <a href="catalogue.html" class="dir-link">Shop</a>
+</div>
+
 <div class="layout">
-  <a href="catalogue.html" class="dir-link dir-top">Shop</a>
-  <a href="system.html" class="dir-link dir-left">System</a>
-  <img class="stone-photo" id="stoneImg" src="" alt="">
-  <a href="projects.html" class="dir-link dir-right">Projects</a>
+  <a href="system.html" class="dir-link">System</a>
+  <a href="installation.html" class="dir-link">Installation</a>
+  <a href="projects.html" class="dir-link">Projects</a>
+  <a href="faqs.html" class="dir-link">FAQS</a>
 </div>
 
 <div class="bottom-contact">
-  Marc Coderch<br>
-  Contact at <a href="mailto:marc.coderch.verges@gmail.com">marc.coderch.verges@gmail.com</a>
-  &middot; <a href="tel:+34666167893">+34 666 167 893</a>
-  &middot; <a href="https://instagram.com/coderch__online" target="_blank" rel="noopener">@coderch__online</a>
-  &middot; Avinguda Fabregada 22, 08907 L'Hospitalet de Llobregat<br>
-  <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms and Conditions</a>
+  <a href="contact.html" class="dir-link">Contact</a>
 </div>
-
-<script>
-  var stones = [
-    "fotos/01/01.jpg",
-    "fotos/02/01.jpg",
-    "fotos/03/01.jpg",
-    "fotos/04/01.jpg",
-    "fotos/05/01.jpg",
-    "fotos/06/01.jpg",
-    "fotos/07/01.jpg",
-    "fotos/08/01.jpg",
-    "fotos/09/01.jpg"
-  ];
-
-  (function initStone(){
-    var STORAGE_KEY = "pedra-last-index";
-    var last = -1;
-    try{
-      var stored = localStorage.getItem(STORAGE_KEY);
-      if(stored !== null) last = parseInt(stored, 10);
-    }catch(e){}
-
-    var idx;
-    if(stones.length <= 1){
-      idx = 0;
-    }else{
-      do{
-        idx = Math.floor(Math.random() * stones.length);
-      }while(idx === last);
-    }
-
-    try{ localStorage.setItem(STORAGE_KEY, String(idx)); }catch(e){}
-
-    document.getElementById("stoneImg").src = stones[idx];
-  })();
-</script>
 
 <script data-goatcounter="https://coderch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

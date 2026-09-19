@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQS — Marc Coderch</title>
+
+<style>
+  :root{
+    color-scheme: light;
+  }
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  body{
+    min-height: 100vh;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: 400;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-nav{
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vh, 40px) 1.5rem 0;
+    text-align: center;
+    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
+    color: #444444;
+  }
+
+  .top-nav a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .top-nav a:hover{
+    text-decoration: underline;
+  }
+
+  main{
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    padding: clamp(48px, 8vh, 96px) 1.5rem clamp(64px, 10vh, 120px);
+    text-align: center;
+  }
+
+  .section-title{
+    margin: 0 0 clamp(24px, 4vh, 40px);
+    font-weight: 400;
+    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
+    color: #444444;
+  }
+
+  .faq{
+    text-align: left;
+    border-top: 1px solid #e6e6e6;
+  }
+
+  .faq details{
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .faq summary{
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5em;
+    padding: 0.7em 0;
+    font-size: clamp(0.8rem, 1.6vw, 0.92rem);
+  }
+
+  .faq summary::-webkit-details-marker{
+    display: none;
+  }
+
+  .faq summary::after{
+    content: "+";
+    color: #444444;
+    padding-left: 1em;
+  }
+
+  .faq details[open] summary::after{
+    content: "–";
+  }
+
+  .faq p{
+    margin: 0 0 1em;
+    font-size: clamp(0.76rem, 1.5vw, 0.86rem);
+    color: #444444;
+    line-height: 1.6;
+  }
+
+  .site-footer{
+    width: 100%;
+    margin-top: auto;
+    box-sizing: border-box;
+    text-align: center;
+    padding: clamp(24px, 4vh, 40px) 1.5rem clamp(32px, 5vh, 56px);
+    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
+    color: #444444;
+  }
+
+  .site-footer a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-footer a:hover{
+    text-decoration: underline;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">Back</a>
+</div>
+
+<main>
+  <div class="section-title">FAQS</div>
+
+  <div class="faq">
+    <details>
+      <summary>How does it work?</summary>
+      <p>We&rsquo;ve designed and patented a solution that makes stones touch sensitive and, thus, are able to turn on lights wirelessly.</p>
+    </details>
+    <details>
+      <summary>Does it work with all stones?</summary>
+      <p>As of today, volcanic stones remain the only one which we&rsquo;ve not been able to work with. All other stones have worked perfectly.</p>
+    </details>
+    <details>
+      <summary>Can I send my own stone?</summary>
+      <p>That&rsquo;s an awesome plan. We love to work with your stones. Just send us an email so we can check that it fits.</p>
+    </details>
+    <details>
+      <summary>What type of products do you have?</summary>
+      <p>Depending on the size of the stone the electronics are either inserted inside or in a wooden base. For more complex projects please reach out through email.</p>
+    </details>
+    <details>
+      <summary>Where do you ship from?</summary>
+      <p>This is designed by us in Barcelona. Paella and stones. Rock and Roll.</p>
+    </details>
+    <details>
+      <summary>Installation</summary>
+      <p>To install, simply unplug your lamp, plug it to the Pedra Plug&reg;, and then plug it back again &mdash; next is magic!</p>
+    </details>
+    <details>
+      <summary>Warranty</summary>
+      <p>If it does not work, we'll fix it. This is forever.</p>
+    </details>
+    <details>
+      <summary>Shipping</summary>
+      <p>Insured, tracked shipping worldwide. Dispatched within 3&ndash;5 working days.</p>
+    </details>
+    <details>
+      <summary>Returns</summary>
+      <p>Returns accepted within 14 days if the piece is unused and in its original packaging.</p>
+    </details>
+    <details>
+      <summary>Care</summary>
+      <p>Wipe with a soft, dry cloth. Avoid solvents, water and prolonged direct sunlight.</p>
+    </details>
+    <details>
+      <summary>Authenticity</summary>
+      <p>Each stone is one of a kind &mdash; hand-selected and logged with its own serial number, coordinates and calibration.</p>
+    </details>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <a href="contact.html">Contact</a>
+</footer>
+
+<script data-goatcounter="https://coderch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
