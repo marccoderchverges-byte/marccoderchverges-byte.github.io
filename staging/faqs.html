@@ -118,6 +118,50 @@
     text-decoration: underline;
   }
 
+
+  .cookie-banner{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    box-sizing: border-box;
+    padding: 0.9em 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1em;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-top: 1px solid #e6e6e6;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(0.72rem, 1.4vw, 0.84rem);
+    color: #444444;
+    text-align: center;
+  }
+
+  .cookie-banner.is-hidden{
+    display: none;
+  }
+
+  .cookie-banner .cookie-text a{
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .cookie-banner .cookie-accept{
+    color: #1a1a1a;
+    text-decoration: underline;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .cookie-banner .cookie-accept:hover{
+    text-decoration: none;
+  }
 </style>
 </head>
 <body>
@@ -181,5 +225,30 @@
   <a href="contact.html">Contact</a>
 </footer>
 
+
+<div id="cookieBanner" class="cookie-banner">
+  <span class="cookie-text">This site uses cookies to improve your experience. <a href="privacy.html">Privacy Policy</a></span>
+  <a href="#" id="cookieAccept" class="cookie-accept">Accept</a>
+</div>
+
+<script>
+  (function(){
+    var KEY = "cookieConsent";
+    var banner = document.getElementById("cookieBanner");
+    if(!banner) return;
+    try{
+      if(localStorage.getItem(KEY) === "accepted"){
+        banner.classList.add("is-hidden");
+        return;
+      }
+    }catch(e){}
+    var acceptBtn = document.getElementById("cookieAccept");
+    acceptBtn.addEventListener("click", function(e){
+      e.preventDefault();
+      banner.classList.add("is-hidden");
+      try{ localStorage.setItem(KEY, "accepted"); }catch(e){}
+    });
+  })();
+</script>
 </body>
 </html>
