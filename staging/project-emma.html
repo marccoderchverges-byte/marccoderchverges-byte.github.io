@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where do you place a touch — Marc Coderch</title>
+<meta name="robots" content="noindex">
+
+<style>
+  :root{
+    color-scheme: light;
+  }
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  body{
+    min-height: 100vh;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: 400;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-nav{
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vh, 40px) 1.5rem 0;
+    text-align: center;
+    font-size: clamp(0.865rem, 1.6vw, 1.005rem);
+    color: #444444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .top-nav a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .top-nav a:hover{
+    text-decoration: underline;
+  }
+
+  .project-intro{
+    width: 100%;
+    max-width: 640px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: clamp(48px, 8vh, 96px) 1.5rem clamp(8px, 2vh, 16px);
+    text-align: center;
+    font-weight: 400;
+    font-size: clamp(0.865rem, 1.6vw, 1.005rem);
+    line-height: 1.7;
+    color: #1a1a1a;
+  }
+
+  .project-gallery{
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: clamp(40px, 6vh, 64px) 1.5rem clamp(64px, 10vh, 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(24px, 4vh, 48px);
+  }
+
+  .project-gallery img,
+  .project-gallery video{
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #f2f2f2;
+  }
+
+  .site-footer{
+    width: 100%;
+    margin-top: auto;
+    box-sizing: border-box;
+    text-align: center;
+    padding: clamp(24px, 4vh, 40px) 1.5rem clamp(32px, 5vh, 56px);
+    font-size: clamp(0.865rem, 1.6vw, 1.005rem);
+    color: #444444;
+  }
+
+  .site-footer a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-footer a:hover{
+    text-decoration: underline;
+  }
+
+
+  .cookie-banner{
+    position: fixed;
+    left: clamp(12px, 3vw, 22px);
+    bottom: clamp(12px, 3vh, 22px);
+    z-index: 9999;
+    max-width: 240px;
+    box-sizing: border-box;
+    padding: 0.75em 0.9em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid #e6e6e6;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(0.64rem, 1.1vw, 0.72rem);
+    line-height: 1.4;
+    color: #444444;
+    text-align: left;
+  }
+
+  .cookie-banner.is-hidden{
+    display: none;
+  }
+
+  .cookie-banner .cookie-text a{
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .cookie-banner .cookie-accept{
+    color: #1a1a1a;
+    text-decoration: underline;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .cookie-banner .cookie-accept:hover{
+    text-decoration: none;
+  }
+
+  @media (max-width: 700px){
+    .cookie-banner{
+      left: 50%;
+      bottom: clamp(14px, 3vh, 24px);
+      transform: translateX(-50%);
+      max-width: min(88vw, 380px);
+      width: max-content;
+      align-items: center;
+      text-align: center;
+      padding: 1em 1.3em;
+      font-size: clamp(0.8rem, 3.6vw, 0.94rem);
+      gap: 0.65em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+</div>
+
+<div class="project-intro">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+</div>
+
+<div class="project-gallery">
+  <img src="fotos/emma/01.jpg" alt="Where do you place a touch">
+  <img src="fotos/emma/02.jpg" alt="Where do you place a touch">
+  <img src="fotos/emma/03.jpg" alt="Where do you place a touch">
+  <img src="fotos/emma/04.jpg" alt="Where do you place a touch">
+  <img src="fotos/emma/05.jpg" alt="Where do you place a touch">
+  <video src="fotos/emma/video.mp4" controls playsinline></video>
+</div>
+
+<footer class="site-footer">
+  <a href="contact.html">Contact</a>
+</footer>
+
+
+<div id="cookieBanner" class="cookie-banner">
+  <span class="cookie-text">This site uses cookies to improve your experience. <a href="privacy.html">Privacy Policy</a></span>
+  <a href="#" id="cookieAccept" class="cookie-accept">Accept</a>
+</div>
+
+<script>
+  (function(){
+    var KEY = "cookieConsent";
+    var banner = document.getElementById("cookieBanner");
+    if(!banner) return;
+    try{
+      if(localStorage.getItem(KEY) === "accepted"){
+        banner.classList.add("is-hidden");
+        return;
+      }
+    }catch(e){}
+    var acceptBtn = document.getElementById("cookieAccept");
+    acceptBtn.addEventListener("click", function(e){
+      e.preventDefault();
+      banner.classList.add("is-hidden");
+      try{ localStorage.setItem(KEY, "accepted"); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>

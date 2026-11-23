@@ -64,6 +64,35 @@
     color: #999999;
   }
 
+  .project-list{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3vh, 32px);
+  }
+
+  .project-link{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .project-title{
+    display: block;
+    font-size: clamp(0.865rem, 1.6vw, 1.005rem);
+    color: #1a1a1a;
+  }
+
+  .project-link:hover .project-title{
+    text-decoration: underline;
+  }
+
+  .project-byline{
+    display: block;
+    margin-top: 0.3em;
+    font-size: clamp(0.865rem, 1.6vw, 1.005rem);
+    color: #444444;
+  }
+
   .site-footer{
     width: 100%;
     margin-top: auto;
@@ -152,7 +181,12 @@
 
 <main>
   <div class="section-title">Projects</div>
-  <div class="placeholder">Coming soon.</div>
+  <div class="project-list">
+    <a href="project-emma.html" class="project-link">
+      <span class="project-title">Where do you place a touch</span>
+      <span class="project-byline">with Emma Witty Suñol</span>
+    </a>
+  </div>
 </main>
 
 <footer class="site-footer">
